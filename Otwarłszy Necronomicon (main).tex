@@ -1,0 +1,31 @@
+\documentclass[12pt, a4paper, openright]{book}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{makeidx}
+
+\makeindex
+
+\begin{document}
+
+\begin{titlepage}
+	\centering
+	{\Huge \bfseries \title _Otwarłszy Necronomicon \par}
+	\vspace{1cm}
+	{\large \itshape Zbiór tekstów H.P. Lovecrafta \par}
+	{\large \itshape  w tłumaczeniu na licencji \textbf{CC-BY-SA 4.0} \par}
+	\vspace{1cm}
+	{\large \textbf{Teksty: Copyright © H.P. Lovecraft} \par}
+	{\large \textbf{Tłumaczenie: Copyright © Szymon Brycki} \par}
+	\vspace{1cm}
+	{\large Stworzono w technologii \LaTeX \par}
+	\vspace{1cm}
+	{\large \today \par}
+\end{titlepage}
+
+\tableofcontents
+
+\input{src/Przypadek Charlesa Dextera Warda.tex}
+
+\printindex
+
+\end{document}
