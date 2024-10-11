@@ -1,0 +1,89 @@
+\documentclass[10pt, a4paper, twocolumn, openright]{book}
+
+\usepackage[pdftex, breaklinks=true]{hyperref}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage{tabularx}
+\usepackage{xcolor }
+\usepackage{soul}
+\usepackage{afterpage}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage{longtable}
+\usepackage{supertabular,booktabs}
+\usepackage{pdfpages}
+
+% TABLES WIDTH !!!
+% 0.10 and 0.45
+
+\definecolor{purple}{HTML}{92268F}
+\definecolor{red}{HTML}{FF0000}
+% \definecolor{gray}{HTML}{D3D3D3}
+
+% \sethlcolor{gray} 
+
+\newcommand{\mytext }[1] {{\color{purple} \textbf{ \texttt {#1}}}}
+
+% \title{Cypher System Reference Document 2024-07-02 (Edycja Polska)}
+% \author{Zespół Monte Cook Games\thanks{Strona projektu: \url{https://www.montecookgames.com/cypher-system-open-license/}} \and Szymon ``Kaworu'' Brycki\thanks{\href{mailto:szymon.brycki@gmail.com}{\tt szymon.brycki@gmail.com}}}
+
+\makeindex
+
+\begin{document}
+
+\includepdf[pages=1, noautoscale=true, width=\paperwidth]{graphics/okładka 3.pdf}
+
+\begin{titlepage}
+	\centering
+	{\Huge \bfseries \title  _Dokument Referencyjny  \break Cypher System \par}
+	\vspace{1cm}
+	{\large \itshape 2024-07-02 \par}
+	{\large \itshape  Edycja polska \par}
+	\vspace{1cm}
+	{\normalsize \textbf{Oryginalne zasady}: Monte Cook Games \par}
+	{\normalsize \textbf{Polskie tłumaczenie}: Szymon ``Kaworu'' Brycki \par}
+	\vspace{1cm}
+	{\normalsize Licencja: \bfseries Cypher System Open License\par}
+	\vspace{1cm}
+	{\large \textbf{Copyright © 2024 Monte Cook Games. Some rights reserved.} \par}
+	\vspace{1cm}
+	{\large Stworzono w technologii \LaTeX \par}
+	\vspace{1cm}
+	{\large \today \par}
+\end{titlepage}
+
+% \maketitle
+
+\tableofcontents
+
+% here go all the chapters
+
+\input{src/Jak grać w Cypher System.tex}
+\input{src/Tworzenie własnej postaci.tex}
+\input{src/Typ.tex}
+\input{src/Wojownik.tex}
+\input{src/Adept.tex}
+\input{src/Odkrywca.tex}
+\input{src/Mówca.tex}
+\input{src/Opcje Tworzenia Postaci - Fantasy.tex}
+\input{src/Dalsza Customizacja.tex}
+\input{src/Deskryptory.tex}
+\input{src/Specjalizacje.tex}
+\input{src/Tworzenie nowych Specjalizacji.tex}
+\input{src/Zdolności.tex}
+
+% below go the alphabetic abilities lists
+
+\input{src/Zdolności/A (E) v2.tex}
+
+% below go licenses
+
+\input{src/Licencje.tex}
+
+\printindex
+
+\listoftables
+
+\end{document}
