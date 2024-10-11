@@ -1,10 +1,13 @@
 \documentclass[12pt, a4paper, openright]{book}
 \usepackage{polski}
+\usepackage[polish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{makeidx}
+\usepackage{imakeidx}
 \usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{csquotes}
 
-\makeindex
+\makeindex[program=texindy,options=-L polish -C utf8]
 
 \begin{document}
 
