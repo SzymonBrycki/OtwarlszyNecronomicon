@@ -6,6 +6,34 @@
 \usepackage{pdfpages}
 \usepackage{hyperref}
 \usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{newunicodechar}
+\usepackage{multicol}
+\usepackage{fontspec}
+
+\setmainfont{FreeSerif}[
+  BoldFont = FreeSerifBold.ttf, % Zmień rozszerzenie, jeśli używasz innego formatu
+  ItalicFont = FreeSerifItalic.ttf,
+  BoldItalicFont = FreeSerifBoldItalic.ttf
+]
+
+\newunicodechar{☊}{\symbol{"260A}}
+\newunicodechar{☋}{\symbol{"260B}}
+
+% \newunicodechar{☊}{\alchemyr}
+% \newunicodechar{☋}{\alchemyf}
+
+% \DeclareUnicodeCharacter{260B}{\alchemyf}
+% \DeclareUnicodeCharacter{260C}{\alchemyr}
+
+% \DeclareRobustCommand\alchemyf{%
+ %  \unskip\nobreak\thinspace\allowbreak\thinspace\ignorespaces}
+
+% \DeclareRobustCommand\alchemyr{%
+%  \unskip\nobreak\thinspace\allowbreak\thinspace\ignorespaces}
+
+\graphicspath{ {./images/} }
 
 \makeindex[program=texindy,options=-C utf8]
 
@@ -37,7 +65,10 @@
 	\vspace{1cm}
 	{\large \itshape Zbiór tekstów H.P. Lovecrafta \par}
 	{\large \itshape  w tłumaczeniu na licencji \textbf{\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC-BY-SA 4.0}} \par}
-	\vspace{1cm}
+	\begin{figure}[h]
+		\centering
+		\includegraphics{license}
+	\end{figure}
 	{\large \textbf{Teksty}: Copyright © H.P. Lovecraft \par}
 	{\large \textbf{Tłumaczenie}: Copyright © \Year{\the\year} Szymon ``Kaworu'' Brycki \par}
 	\vspace{1cm}
