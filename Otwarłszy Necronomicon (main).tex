@@ -1,9 +1,13 @@
 \documentclass[12pt, a4paper, openright]{book}
 
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[polish]{babel}
-\usepackage{imakeidx}
+% \usepackage[T1]{fontenc}
+% \usepackage[polish]{babel}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{polish}
+
+\usepackage{imakeidx} 
 \usepackage{pdfpages}
 \usepackage{hyperref}
 \usepackage{csquotes}
@@ -12,31 +16,40 @@
 \usepackage{newunicodechar}
 \usepackage{multicol}
 \usepackage{fontspec}
+\usepackage{fancyvrb}
+\usepackage{calc}
+\usepackage[export]{adjustbox}
+\usepackage{environ}
+\usepackage{etoolbox} 
+
 
 \setmainfont{FreeSerif}[
-  BoldFont = FreeSerifBold.ttf, % Zmień rozszerzenie, jeśli używasz innego formatu
-  ItalicFont = FreeSerifItalic.ttf,
-  BoldItalicFont = FreeSerifBoldItalic.ttf
+  UprightFont = FreeSerif,          % Normalny styl (regular)
+  BoldFont = FreeSerifBold,         % Pogrubiony styl (bold)
+  ItalicFont = FreeSerifItalic,     % Kursywa (italic)
+  BoldItalicFont = FreeSerifBoldItalic, % Pogrubiona kursywa (bold italic)
+  ExternalLocation, 
+  Path=, 
+  Extension=.ttf,
 ]
+
+\newfontfamily\asciiartfont{Noto Sans Mono} 
 
 \newunicodechar{☊}{\symbol{"260A}}
 \newunicodechar{☋}{\symbol{"260B}}
 
-% \newunicodechar{☊}{\alchemyr}
-% \newunicodechar{☋}{\alchemyf}
+\newunicodechar{⠀}{\nobreakspace}
 
-% \DeclareUnicodeCharacter{260B}{\alchemyf}
-% \DeclareUnicodeCharacter{260C}{\alchemyr}
-
-% \DeclareRobustCommand\alchemyf{%
- %  \unskip\nobreak\thinspace\allowbreak\thinspace\ignorespaces}
-
-% \DeclareRobustCommand\alchemyr{%
-%  \unskip\nobreak\thinspace\allowbreak\thinspace\ignorespaces}
+% \newunicodechar{⠀}{\textvisiblespace} 
 
 \graphicspath{ {./images/} }
 
-\makeindex[program=texindy,options=-C utf8]
+\makeatletter
+\patchcmd{\printindex}{\chapter*}{\part*}{}{} % Change chapter* to part*
+\patchcmd{\printindex}{\addcontentsline{toc}{chapter}}{\addcontentsline{toc}{part}}{}{} % Change toc entry level
+\makeatother
+
+\makeindex[program=texindy,options=-C utf8 -L pl, intoc]
 
 % current year code below
 
@@ -56,6 +69,12 @@
 
 \urlstyle{same}
 
+\NewEnviron{wpis}{%
+  \noindent\begin{minipage}{\columnwidth}
+  \BODY
+  \end{minipage}\par
+}
+
 \begin{document}
 
 \includepdf[pages=1, noautoscale=true, width=\paperwidth]{Cthulhu-open-source.pdf}
@@ -66,7 +85,7 @@
 	\vspace{1cm}
 	{\large \itshape Zbiór tekstów H.P. Lovecrafta \par}
 	{\large \itshape  w tłumaczeniu na licencji \textbf{\href{https://creativecommons.org/licenses/by-sa/4.0/}{CC-BY-SA 4.0}} \par}
-	\begin{figure}[h]
+	\begin{figure}[h] 
 		\centering
 		\includegraphics{license}
 	\end{figure}
@@ -82,10 +101,23 @@
 	{\large \today \par}
 \end{titlepage}
 
+\vspace*{\fill}
+
+\begin{figure}[h]
+\includegraphics[width = \textwidth]{deep-one.png}
+\caption{Copyright © OpenClipArt - public domain}
+\end{figure}
+
+\vspace*{\fill}
+
+\clearpage
+
 \tableofcontents
 
 \input{src/Przypadek Charlesa Dextera Warda.tex}
 
+\part{Indeks}
+
 \printindex
 
-\end{document}
+\end{document} 
